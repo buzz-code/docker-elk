@@ -33,7 +33,7 @@ services:
     configs:
       - source: logstash_config1
         target: /usr/share/logstash/config/logstash.yml
-      - source: logstash_pipeline
+      - source: logstash_pipeline1
         target: /usr/share/logstash/pipeline/logstash.conf
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
@@ -65,7 +65,7 @@ configs:
     file: ./elasticsearch/config/elasticsearch.yml
   logstash_config1:
     file: ./logstash/config/logstash.yml
-  logstash_pipeline:
+  logstash_pipeline1:
     file: ./logstash/pipeline/logstash.conf
   kibana_config1:
     file: ./kibana/config/kibana.yml
