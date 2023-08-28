@@ -49,7 +49,7 @@ services:
     ports:
       - "5601:5601"
     configs:
-      - source: kibana_config1
+      - source: kibana_config2
         target: /usr/share/kibana/config/kibana.yml
     environment:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-changeme}
@@ -67,7 +67,7 @@ configs:
     file: ./logstash/config/logstash.yml
   logstash_pipeline1:
     file: ./logstash/pipeline/logstash.conf
-  kibana_config1:
+  kibana_config2:
     file: ./kibana/config/kibana.yml
 
 networks:
