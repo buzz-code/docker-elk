@@ -31,9 +31,9 @@ services:
       - "5000:5000"
       - "9600:9600"
     configs:
-      - source: logstash_config1
+      - source: logstash_config2
         target: /usr/share/logstash/config/logstash.yml
-      - source: logstash_pipeline1
+      - source: logstash_pipeline2
         target: /usr/share/logstash/pipeline/logstash.conf
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
@@ -49,7 +49,7 @@ services:
     ports:
       - "5601:5601"
     configs:
-      - source: kibana_config2
+      - source: kibana_config3
         target: /usr/share/kibana/config/kibana.yml
     environment:
       ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:-changeme}
@@ -63,11 +63,11 @@ configs:
 
   elastic_config1:
     file: ./elasticsearch/config/elasticsearch.yml
-  logstash_config1:
+  logstash_config2:
     file: ./logstash/config/logstash.yml
-  logstash_pipeline1:
+  logstash_pipeline2:
     file: ./logstash/pipeline/logstash.conf
-  kibana_config2:
+  kibana_config3:
     file: ./kibana/config/kibana.yml
 
 networks:
