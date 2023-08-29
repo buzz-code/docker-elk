@@ -4,9 +4,9 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
-    ports:
-      - "9200:9200"
-      - "9300:9300"
+    # ports:
+    #   - "9200:9200"
+    #   - "9300:9300"
     configs:
       - source: elastic_config
         target: /usr/share/elasticsearch/config/elasticsearch.yml
@@ -27,10 +27,10 @@ services:
 
   logstash:
     image: docker.elastic.co/logstash/logstash:7.17.0
-    ports:
-      - "5044:5044"
-      - "5000:5000"
-      - "9600:9600"
+    # ports:
+    #   - "5044:5044"
+    #   - "5000:5000"
+    #   - "9600:9600"
     configs:
       - source: logstash_config3
         target: /usr/share/logstash/config/logstash.yml
@@ -48,8 +48,8 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.0
-    ports:
-      - "5601:5601"
+    # ports:
+    #   - "5601:5601"
     configs:
       - source: kibana_config5
         target: /usr/share/kibana/config/kibana.yml
