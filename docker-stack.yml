@@ -10,6 +10,8 @@ services:
     configs:
       - source: elastic_config
         target: /usr/share/elasticsearch/config/elasticsearch.yml
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data:Z
     env_file:
       - .env
     environment:
@@ -74,6 +76,9 @@ configs:
     file: ./logstash/pipeline/logstash.conf
   kibana_config5:
     file: ./kibana/config/kibana.yml
+
+volumes:
+  elasticsearch:
 
 networks:
   elk:
