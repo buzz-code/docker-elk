@@ -63,9 +63,9 @@ services:
     deploy:
       mode: replicated
       replicas: 1
-    labels:
-      caddy: kibana.yoman.online
-      caddy.reverse_proxy: '{{upstreams 5601}}'
+      labels:
+        caddy: kibana.yoman.online
+        caddy.reverse_proxy: '{{upstreams 5601}}'
 
 configs:
   elastic_config:
