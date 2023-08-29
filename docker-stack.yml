@@ -65,7 +65,9 @@ services:
       - .env
     environment:
       server.publicBaseUrl: https://kibana.$DOMAIN_NAME
+      SERVER_PUBLICBASEURL: https://kibana.$DOMAIN_NAME
       elasticsearch.password: $ELASTIC_PASSWORD
+      ELASTICSEARCH_PASSWORD: $ELASTIC_PASSWORD
     networks:
       - elk
       - caddy
