@@ -61,7 +61,7 @@ services:
     # ports:
     #   - "5601:5601"
     configs:
-      - source: kibana_config5
+      - source: kibana_config7
         target: /usr/share/kibana/config/kibana.yml
     env_file:
       - .env
@@ -86,7 +86,7 @@ configs:
     file: ./logstash/config/logstash.yml
   logstash_pipeline3:
     file: ./logstash/pipeline/logstash.conf
-  kibana_config5:
+  kibana_config7:
     file: ./kibana/config/kibana.yml
 
 volumes:
