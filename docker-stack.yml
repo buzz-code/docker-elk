@@ -30,29 +30,29 @@ services:
           cpus: '0.3'
           memory: 500M
 
-  logstash:
-    image: docker.elastic.co/logstash/logstash:7.17.0
-    # ports:
-    #   - "5044:5044"
-    #   - "5000:5000"
-    #   - "9600:9600"
-    configs:
-      - source: logstash_config3
-        target: /usr/share/logstash/config/logstash.yml
-      - source: logstash_pipeline3
-        target: /usr/share/logstash/pipeline/logstash.conf
-    environment:
-      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
-    networks:
-      - elk
-    deploy:
-      mode: replicated
-      replicas: 1
-      resources:
-        limits:
-          cpus: '0.3'
-          memory: 500M
+  # logstash:
+  #   image: docker.elastic.co/logstash/logstash:7.17.0
+  #   # ports:
+  #   #   - "5044:5044"
+  #   #   - "5000:5000"
+  #   #   - "9600:9600"
+  #   configs:
+  #     - source: logstash_config3
+  #       target: /usr/share/logstash/config/logstash.yml
+  #     - source: logstash_pipeline3
+  #       target: /usr/share/logstash/pipeline/logstash.conf
+  #   environment:
+  #     LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+  #     ELASTIC_PASSWORD: $ELASTIC_PASSWORD
+  #   networks:
+  #     - elk
+  #   deploy:
+  #     mode: replicated
+  #     replicas: 1
+  #     resources:
+  #       limits:
+  #         cpus: '0.3'
+  #         memory: 500M
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.17.0
