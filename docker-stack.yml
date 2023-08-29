@@ -12,10 +12,9 @@ services:
         target: /usr/share/elasticsearch/config/elasticsearch.yml
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
-    env_file:
-      - .env
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:changeme}
       # Use single node discovery in order to disable production mode and avoid bootstrap checks.
       # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
       discovery.type: single-node
@@ -38,10 +37,9 @@ services:
         target: /usr/share/logstash/config/logstash.yml
       - source: logstash_pipeline3
         target: /usr/share/logstash/pipeline/logstash.conf
-    env_file:
-      - .env
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:changeme}
     networks:
       - elk
     deploy:
@@ -53,10 +51,13 @@ services:
     # ports:
     #   - "5601:5601"
     configs:
-      - source: kibana_config5
+      - source: kibana_config6
         target: /usr/share/kibana/config/kibana.yml
     env_file:
       - .env
+    environment:
+      server.publicBaseUrl: https://kibana.${DOMAIN_NAME:example.com}
+      elasticsearch.password: ${ELASTIC_PASSWORD:changeme}
     networks:
       - elk
       - caddy
@@ -74,7 +75,7 @@ configs:
     file: ./logstash/config/logstash.yml
   logstash_pipeline3:
     file: ./logstash/pipeline/logstash.conf
-  kibana_config5:
+  kibana_config6:
     file: ./kibana/config/kibana.yml
 
 volumes:
