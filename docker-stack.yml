@@ -57,12 +57,15 @@ services:
       - .env
     networks:
       - elk
+      - caddy
     deploy:
       mode: replicated
       replicas: 1
+    labels:
+      caddy: kibana.yoman.online
+      caddy.reverse_proxy: '{{upstreams 5601}}'
 
 configs:
-
   elastic_config:
     file: ./elasticsearch/config/elasticsearch.yml
   logstash_config3:
@@ -75,3 +78,5 @@ configs:
 networks:
   elk:
     driver: overlay
+  caddy:
+    external: true
