@@ -29,10 +29,10 @@ services:
       placement:
         constraints:
             - node.labels.elk == true
-      # resources:
-      #   limits:
-      #     cpus: '0.3'
-      #     memory: 500M
+      resources:
+        limits:
+          cpus: '0.5'
+          # memory: 500M
 
   # logstash:
   #   image: docker.elastic.co/logstash/logstash:7.17.0
