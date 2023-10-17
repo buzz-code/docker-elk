@@ -29,9 +29,9 @@ services:
       placement:
         constraints:
             - node.labels.elk == true
-      resources:
-        limits:
-          cpus: '0.5'
+      # resources:
+      #   limits:
+      #     cpus: '0.5'
           # memory: 500M
 
   # logstash:
