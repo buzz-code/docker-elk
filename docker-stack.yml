@@ -8,7 +8,7 @@ services:
     #   - "9200:9200"
     #   - "9300:9300"
     configs:
-      - source: elastic_config
+      - source: elastic_config1
         target: /usr/share/elasticsearch/config/elasticsearch.yml
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data:Z
@@ -89,7 +89,7 @@ services:
       #     memory: 500M
 
 configs:
-  elastic_config:
+  elastic_config1:
     file: ./elasticsearch/config/elasticsearch.yml
   logstash_config3:
     file: ./logstash/config/logstash.yml
