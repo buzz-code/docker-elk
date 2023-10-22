@@ -23,6 +23,7 @@ services:
       network.publish_host: _eth0_
       # index.number_of_shards: 1
       # index.number_of_replicas: 0
+      ES_HEAP_SIZE: 512m
     networks:
       - elk
     deploy:
@@ -34,7 +35,10 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          # memory: 500M
+          memory: 1G
+        reservations:
+          cpus: '0.25'
+          memory: 500M
 
   # logstash:
   #   image: docker.elastic.co/logstash/logstash:7.17.0
