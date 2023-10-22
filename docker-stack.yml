@@ -21,8 +21,8 @@ services:
       discovery.type: single-node
       # Force publishing on the 'elk' overlay.
       network.publish_host: _eth0_
-      index.number_of_shards: 1
-      index.number_of_replicas: 0
+      # index.number_of_shards: 1
+      # index.number_of_replicas: 0
     networks:
       - elk
     deploy:
