@@ -13,8 +13,8 @@ xpack.security.enabled: true
 xpack.monitoring.collection.enabled: true
 
 # single node mode
-index.number_of_shards: 1
-index.number_of_replicas: 0
+# index.number_of_shards: 1
+# index.number_of_replicas: 0
 
 # memory limit
 bootstrap.memory_lock: true
